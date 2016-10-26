@@ -33,6 +33,7 @@ $('#month').click(function () {
 
 $("#newEvent").click(function () {
     hour = parseInt($("#hour").val()) + parseInt($("#ampm").val());
+	if($("#days").val()<=$("#days").attr("max") && $("#minute").val()<=$("#minute").attr("max")){
     if (hour < 10) {
         hour = "0" + hour;
     }
@@ -70,6 +71,8 @@ $("#newEvent").click(function () {
             console.log("error");
         }
     });
+	}
+	else{alert("Incorrect Date or Minute field. Re-Enter then try again");}
 
 });
 $.get('php/getEvents.php', function (data) {
