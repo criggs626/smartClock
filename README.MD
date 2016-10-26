@@ -1,0 +1,1 @@
+This is the initial testing phase for my personal smartclock. Next sequence of development includes improved sql integration. Then front end refining. Final phase will involve running javafx on my raspberry pi.
