@@ -5,7 +5,9 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -38,16 +40,22 @@ public class Events {
         List<String> tempRow = new ArrayList<String>();
         List<String[]> temp = new ArrayList<String[]>();
         try {
-            ResultSet rs = statmentItem.executeQuery("SELECT * FROM EVENTS");
-            while (rs.next()) {
-                tempRow.add(rs.getString("id"));
-                tempRow.add(rs.getString("description"));
-                tempRow.add(rs.getString("location"));
-                tempRow.add(rs.getString("time"));
-                String[] simpleArray = new String[tempRow.size()];
-                temp.add(tempRow.toArray(simpleArray));
+            ResultSet rs = statmentItem.executeQuery("SELECT * FROM EVENTS ORDER BY time");
 
-                tempRow.clear();
+            SimpleDateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+            Date dateobj = new Date();
+            String date = (df.format(dateobj));
+
+            while (rs.next()) {
+                if (rs.getString("time").substring(0, 10).equals(date)) {
+                    tempRow.add(rs.getString("id"));
+                    tempRow.add(rs.getString("description"));
+                    tempRow.add(rs.getString("location"));
+                    tempRow.add(rs.getString("time"));
+                    String[] simpleArray = new String[tempRow.size()];
+                    temp.add(tempRow.toArray(simpleArray));
+                    tempRow.clear();
+                }
             }
 
         } catch (SQLException ex) {
@@ -85,10 +93,10 @@ public class Events {
 
         return returnBox;
     }
-    
-    public HBox run(){
+
+    public HBox run() {
         initialize();
-        HBox test=addEvents(getEvents());
+        HBox test = addEvents(getEvents());
         return test;
     }
 

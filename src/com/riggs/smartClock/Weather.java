@@ -9,6 +9,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.InputStreamReader;
 import java.net.URL;
+import java.util.TimerTask;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -21,11 +22,11 @@ import org.json.simple.parser.JSONParser;
  *
  * @author Caleb
  */
-public class Weather {
+public class Weather extends TimerTask {
 
-    public void test() {
-
-    }
+    Text t1;
+    Text t2;
+    Text t3;
 
     public JSONObject getWeather() {
         JSONParser parser = new JSONParser();
@@ -37,7 +38,7 @@ public class Weather {
         String city = "St.Petersburg";
         try {
             BufferedReader locale = new BufferedReader(new FileReader("img//city.txt"));
-            city=locale.readLine();
+            city = locale.readLine();
 
         } catch (Exception e) {
             System.out.print(e);
@@ -67,24 +68,23 @@ public class Weather {
         return result;
 
     }
+    
+    public void setT(Text s1,Text s2,Text s3){
+        t1=s1;
+        t2=s2;
+        t3=s3;
+        run();
+    }
 
-    public void setWeather(VBox container) {
+    @Override
+    public void run() {
         JSONObject result = getWeather();
-        Text t1 = new Text("Loading Weather...");
-        t1.setFill(Color.WHITE);
-        t1.setFont(Font.font("Verdan", 100));
+
         t1.setText(result.get("temp").toString() + "° F");
 
-        Text t2 = new Text("Loading Weather...");
-        t2.setFill(Color.WHITE);
-        t2.setFont(Font.font("Verdan", 50));
         t2.setText(result.get("description").toString());
 
-        Text t3 = new Text("Loading Weather...");
-        t3.setFill(Color.WHITE);
-        t3.setFont(Font.font("Verdan", 50));
         t3.setText(result.get("city").toString());
 
-        container.getChildren().addAll(t1, t2, t3);
     }
 }

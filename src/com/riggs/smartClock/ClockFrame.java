@@ -35,15 +35,30 @@ public class ClockFrame extends Application {
         ClockTicker ticktock = new ClockTicker();
         ticktock.setT(clock, date);
         clockUpdate.scheduleAtFixedRate(ticktock, 1000, 1000);
+//Start revised weather
 
         VBox weather = new VBox();
-        Weather forecast = new Weather();
-        forecast.setWeather(weather);
+        Text t1 = new Text("Loading Temperature...");
+        t1.setFill(Color.WHITE);
+        t1.setFont(Font.font("Verdan", 100));
+        Text t2 = new Text("Loading Condition...");
+        t2.setFill(Color.WHITE);
+        t2.setFont(Font.font("Verdan", 50));
+        Text t3 = new Text("Loading City...");
+        t3.setFill(Color.WHITE);
+        t3.setFont(Font.font("Verdan", 50));
+        weather.getChildren().addAll(t1, t2, t3);
 
+        Weather forecast = new Weather();
+        forecast.setT(t1,t2,t3);
+        Timer weatherUpdate = new Timer();
+        weatherUpdate.scheduleAtFixedRate(forecast, 10000, 10000);
+
+//End weather
         BorderPane borderPane = new BorderPane();
         borderPane.setRight(time);
         borderPane.setLeft(weather);
-        
+
         try {
             Events eventManager = new Events();
             borderPane.setBottom(eventManager.run());
@@ -51,7 +66,7 @@ public class ClockFrame extends Application {
         } catch (Exception e) {
             System.out.print("Did you turn on the database??? \n You should turn it on now.");
         }
-        
+
         Timer genUpdate = new Timer();
         Updater update = new Updater();
         update.set(borderPane);
