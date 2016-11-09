@@ -33,7 +33,7 @@ $('#month').click(function () {
 
 $("#newEvent").click(function () {
     hour = parseInt($("#hour").val()) + parseInt($("#ampm").val());
-	if($("#days").val()<=$("#days").attr("max") && $("#minute").val()<=$("#minute").attr("max")){
+	if(parseInt($("#days").val())<=parseInt($("#days").attr("max")) && parseInt($("#minute").val())<=parseInt($("#minute").attr("max"))){
     if (hour < 10) {
         hour = "0" + hour;
     }

@@ -1,110 +1,26 @@
 <html>
     <head>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-        <script src="js/dropzone.js"></script>
-        <script src="js/tables.js"></script>
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/custom.css" rel="stylesheet">
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-
-
         <link href="css/dropzone.css" type="text/css" rel="stylesheet" />
-
     </head>
     <body>
-        <h1>Smart Clock With Controls Beta1</h1>
-        <br>
-        <div id='load' class="fadeMe" style="display: none;"><h2 id="finalMessage"></h2></div>
-<div class="col-md-4">
-City:<input type="text" placeholder="Lakeland" id="city">
-<button id="locale" class="btn">Update City</button>
-</div>
-        <div id="dZUpload" class="dropzone col-md-4">
-            <div class="dz-default dz-message ">
-                <h4>Drag and drop the file you want to be the background or select manually.</h4><br>
-                <button class="btn">Choose File</button></div>
-        </div>    
-        <div class="col-md-4">
-            <h3>New Event:</h3>
-            <form>
-                <table>
-                    <tr><td>Name:</td><td><input type="text" id="name"></td></tr>
-                    <tr><td>Location:</td><td><input type="text" id="location"></td></tr>
-                </table><table style="margin-top:2px">
-                    <tr><td>Month</td><td>Day</td><td>Year</td><td>Time: HH:MM AM/PM</td></tr>
-                    <tr><td>
-                            <select id="month">
-                                <option value="01">January</option>
-                                <option value="02">February</option>
-                                <option value="03">March</option>
-                                <option value="04">April</option>
-                                <option value="05">May</option>
-                                <option value="06">June</option>
-                                <option value="07">July</option>
-                                <option value="08">August</option>
-                                <option value="09">September</option>
-                                <option value="10">October</option>
-                                <option value="11">November</option>
-                                <option value="12">December</option>
-                            </select></td>
-                        <td><input type="number" style="width:4em" id="days" max="31"></td><td>
-                            <select id="year">
-                                <option value="2016">2016</option>
-                                <option value="2017">2017</option>
-                                <option value="2018">2018</option>
-                            </select>
-                        </td><td><select id="hour">
-                                <option value="01">1</option>
-                                <option value="02">2</option>
-                                <option value="03">3</option>
-                                <option value="04">4</option>
-                                <option value="05">5</option>
-                                <option value="06">6</option>
-                                <option value="07">7</option>
-                                <option value="08">8</option>
-                                <option value="09">9</option>
-                                <option value="10">10</option>
-                                <option value="11">11</option>
-                                <option value="12">12</option>
-                            </select>
-                            <input type="number" style="width:4em" min="00" max="59" id="minute">
-                            <select id="ampm"><option value="0">am</option><option value="12">pm</option></select>
-                        </td></tr>
-                </table>
-            </form>
-            <input type="submit" id="newEvent">
-        </div>
-        <div class="col-md-12">
-            <form style="display: flex;">
-                <img src="img/first.png" class="nav" id="first" alt="">
-                <img src="img/prev.png" class="nav" id="prev" alt="">
-                <p id="pageNumber">Page # 1 of 10</p>
-                <img src="img/next.png" class="nav" id="next" alt="">
-                <img src="img/last.png" alt="" id="last" class="nav">
-                <select class="form-control" id="size" style="width:max-content">
-                    <option selected="selected" value="5">5</option>
-                    <option value="10">10</option>
-                    <option value="15">15</option>
-                    <option value="20">20</option>
-                    <option id="all" value="10">all</option>
-                </select>
-            </form>
-            <table id="myTable" class="table table-condensed table-striped" style="">
-                <thead>
-                    <tr>
-                        <th>Select </th>
-                        <th data-sort="string">Description</th>
-                        <th data-sort="string">Location</th>
-                        <th>Time</th>
-                    </tr>
-                </thead>
-                <tbody></tbody>
-            </table>
-            <button class="btn btn-danger" id="delete">Delete Events</button>
-        </div>
-
-
-        <script src="js/main.js"></script>
-
+	<div style="vertical-align:middle">
+	    <div style="display:inline-block;">
+			<h1 id="city">City</h1>
+			<h2 id="description">Description</h2>
+			<h2 id="temp">temperature</h2>
+			<h3 id="hilo">hi/lo</h3>
+			</div style="display:inline-block;">
+            <div style="float:right;">
+                <h1 style="font-size:8em;" id="time"></h1>
+            </div>
+	</div>
+	<div id="events" style="position:fixed;bottom:0;overflow:hidden;"></div>
+	
+		
+	
+	<script src="js/home.js"></script>
     </body>
 </html>
