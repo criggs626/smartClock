@@ -2,9 +2,9 @@
 $ids=$_POST['id'];
 $ids = implode(",", $ids);   
 
-$sql="DELETE FROM EVENTS WHERE ID IN(".$ids.");";
+$sql="DELETE FROM events WHERE ID IN(".$ids.");";
 
-$conn = new mysqli("localhost", "root", "","test");
+$conn = new mysqli("localhost", "root", "raspberry","CLOCK");
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
