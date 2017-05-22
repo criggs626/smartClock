@@ -1,7 +1,7 @@
 <?php
 
 
-$conn = new mysqli("localhost", "root", "raspberry","CLOCK");
+$conn = new mysqli("localhost", "clockSite", "","CLOCK");
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);

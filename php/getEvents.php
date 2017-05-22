@@ -1,13 +1,14 @@
 <?php
-$linkID = mysql_connect("localhost", "root", "raspberry") or die("Could not connect to host."); 
-mysql_select_db("CLOCK", $linkID) or die("Could not find database."); 
+$conn = new mysqli("localhost", "clockSite", "","CLOCK");
 
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
 
-
-$query = mysql_query("SELECT * FROM events");
+$query =$conn->query("SELECT * FROM events");
 $rows = array();
 $count=0;
-while($row = mysql_fetch_assoc($query)) {
+while($row = $query->fetch_assoc()) {
     $array = array($row["id"], $row["description"], $row["location"], $row["time"]);
 	$rows[] = $array;
 	$count++;

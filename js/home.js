@@ -70,7 +70,7 @@ function setEvents(){
 
 startTime();
 setWeather();
-//setEvents();
+setEvents();
 var t = setTimeout(refresh, 60000)
 function refresh(){
 	location.reload();
