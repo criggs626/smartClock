@@ -30,7 +30,6 @@ function getWeather(){
 		weather=data;
 	});
 	return weather;
-	
 }
 
 function setWeather(){
@@ -59,18 +58,22 @@ function setEvents(){
 	var today = new Date();
 	var currentM=today.getMonth()+1;
 	var currentD=today.getDate();
-	
+
 	for(var i=0;i<events.data.length;i++){
 		if(currentM==parseInt(events.data[i][3].substring(0,2)) && currentD==events.data[i][3].substring(3,5)){
 			$("#events").append("<div style='display:inline-block;padding:5px;' id='"+events.data[i][0]+"'><h3>"+events.data[i][1]+"</h3><h3>"+events.data[i][2]+"</h3><h3>"+events.data[i][3]+"</h3></div>");
 		}
 	}
-	
+
 }
 
-startTime();
+try{
 setWeather();
+}
+finally{
+startTime();
 setEvents();
+}
 var t = setTimeout(refresh, 60000)
 function refresh(){
 	location.reload();
