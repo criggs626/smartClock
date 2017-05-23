@@ -1,4 +1,4 @@
-rawElement = document.querySelector("#dZUpload");
+//rawElement = document.querySelector("#dZUpload");
 var myDropzone = rawElement.dropzone;
 $(document).ready(function () {
     Dropzone.autoDiscover = false;
