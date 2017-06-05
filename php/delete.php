@@ -4,20 +4,12 @@ $ids = implode(",", $ids);
 
 $sql="DELETE FROM events WHERE ID IN(".$ids.");";
 
-$conn = new mysqli("localhost", "clockSite", "","CLOCK");
-
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} 
+$conn = new SQLite3("clockSite.db");
 
 if ($conn->query($sql) === TRUE) {
     echo "Deleted Records succesfully";
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
-
-
-$conn->close();
-
 
 ?>

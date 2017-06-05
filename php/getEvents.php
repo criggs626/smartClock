@@ -1,5 +1,5 @@
 <?php
-$conn = new mysqli("localhost", "clockSite", "","CLOCK");
+$conn = new SQLite3("clockSite.db");
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
