@@ -1,14 +1,10 @@
 <?php
 $conn = new SQLite3("clockSite.db");
 
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
 $query =$conn->query("SELECT * FROM events");
-$rows = array();
+$rows=array();
 $count=0;
-while($row = $query->fetch_assoc()) {
+while($row = $query->fetchArray()) {
     $array = array($row["id"], $row["description"], $row["location"], $row["time"]);
 	$rows[] = $array;
 	$count++;
