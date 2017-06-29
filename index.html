@@ -3,17 +3,16 @@
         <script src="js/jquery-1.12.2.min.js"></script>
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/dropzone.css" type="text/css" rel="stylesheet" />
+        <link href="css/custom.css" type="text/css" rel="stylesheet" />
     </head>
     <body>
-      <div class="row">
-      <div class="col-md-4 offset-md-4">
-        <form name="login">
+      <div class="wrapper">
+        <form name="login" class="form-signin">
           <input type="text" class="form-control" placeholder="username" id="username">
           <input type="password" class="form-control" placeholder="password" id="password">
+          <input class="btn btn-primary btn-block" id="login" value="login">
         </form>
       </div>
-      <input class="btn btn-primary btn-block" id="login">
-    </sript>
       <script src="js/login.js"></script>
     </body>
 </html>

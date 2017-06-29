@@ -9,9 +9,27 @@
 
 
         <link href="css/dropzone.css" type="text/css" rel="stylesheet" />
-
+        <style type="text/css">
+        body {
+        background: url(./img/active.jpg) no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        text-shadow:0px 0px 10px #000
+      }
+        </style>
     </head>
-    <body style="text-shadow:0px 0px 0 #000;">
+    <body style="text-shadow:0px 0px 0 #000;"><div id="block"><h1 style="color:#FFF">Checking login information</h1></div>
+      <script>$.get("php/status.php",function(data){
+        if(data==""){
+          $("#block").fadeOut();
+        }
+        else{
+          window.location.href="login.html";
+        }
+      });
+      </script>
 		<div class="container">
         <div class="col-md-12"><h1>Smart Clock With Controls Beta1</h1></div>
         <br>
