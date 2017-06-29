@@ -10,11 +10,9 @@ while($row = $query->fetchArray()) {
     if($password==$row["password"]){
       session_start();
       $_SESSION["userStatus"] = "green";
-      echo true;
-      exit("User found");
+      exit("true");
     }
   }
 }
-echo false;
-exit("User not found");
+exit("false");
 ?>
