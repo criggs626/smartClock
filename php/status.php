@@ -1,9 +1,8 @@
 <?php
 if($_SESSION["userStatus"]){
-  echo $_SESSION["userStatus"];
+  exit($_SESSION["userStatus"]);
 }
 else{
-  echo false;
+  exit(false);
 }
-exit("Status returned");
 ?>
