@@ -79,4 +79,4 @@ function refresh(){
 	location.reload();
 }
 
-$("html").keypress(function(data){if(data.keyCode==32){window.location="settings.html"};})
+$("html").keypress(function(data){if(data.keyCode==32){window.location="config.html"};})

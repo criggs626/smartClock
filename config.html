@@ -22,11 +22,11 @@
     </head>
     <body style="text-shadow:0px 0px 0 #000;"><div id="block"><h1 style="color:#FFF">Checking login information</h1></div>
       <script>$.get("php/status.php",function(data){
-        if(data==""){
+        if(data=="LoggedIN"){
           $("#block").fadeOut();
         }
         else{
-          window.location.href="login.html";
+          window.location.href="index.html";
         }
       });
       </script>
