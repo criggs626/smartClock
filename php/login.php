@@ -9,7 +9,7 @@ $count=0;
 while($row = $query->fetchArray()) {
   if($userName==$row["uname"]){
     if($password==$row["password"]){
-      $_SESSION["userStatus"] = "green";
+      $_SESSION["userStatus"] = "LoggedIN";
       exit("true");
     }
   }
